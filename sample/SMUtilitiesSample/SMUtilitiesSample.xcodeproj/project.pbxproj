@@ -23,7 +23,7 @@
 		9A06EC231438CBFD0056DB72 /* SMUtilitiesSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A06EC221438CBFD0056DB72 /* SMUtilitiesSampleTests.m */; };
 		9A06EC321438CC520056DB72 /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A06EC301438CC520056DB72 /* ConnectionViewController.m */; };
 		9A06EC331438CC520056DB72 /* ConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A06EC311438CC520056DB72 /* ConnectionViewController.xib */; };
-		9A06EC351438CE050056DB72 /* SMUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A06EC341438CE050056DB72 /* SMUtilities.framework */; };
+		9AFFC6791438D70700F76927 /* SMUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFFC6781438D70700F76927 /* SMUtilities.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,7 @@
 		9A06EC2F1438CC520056DB72 /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
 		9A06EC301438CC520056DB72 /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
 		9A06EC311438CC520056DB72 /* ConnectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionViewController.xib; sourceTree = "<group>"; };
-		9A06EC341438CE050056DB72 /* SMUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SMUtilities.framework; path = "../../Library/Developer/Xcode/DerivedData/SMUtilities-aqodlzwbytwtvbbgtrtmjkuhdqau/Build/Products/Debug-iphoneos/SMUtilities.framework"; sourceTree = "<group>"; };
+		9AFFC6781438D70700F76927 /* SMUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SMUtilities.framework; path = "../../../../Library/Developer/Xcode/DerivedData/SMUtilities-aqodlzwbytwtvbbgtrtmjkuhdqau/Build/Products/Debug-iphoneos/SMUtilities.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 				9A06EBF91438CBFC0056DB72 /* UIKit.framework in Frameworks */,
 				9A06EBFB1438CBFC0056DB72 /* Foundation.framework in Frameworks */,
 				9A06EBFD1438CBFC0056DB72 /* CoreGraphics.framework in Frameworks */,
-				9A06EC351438CE050056DB72 /* SMUtilities.framework in Frameworks */,
+				9AFFC6791438D70700F76927 /* SMUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +108,7 @@
 		9A06EBF71438CBFC0056DB72 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9A06EC341438CE050056DB72 /* SMUtilities.framework */,
+				9AFFC6781438D70700F76927 /* SMUtilities.framework */,
 				9A06EBF81438CBFC0056DB72 /* UIKit.framework */,
 				9A06EBFA1438CBFC0056DB72 /* Foundation.framework */,
 				9A06EBFC1438CBFC0056DB72 /* CoreGraphics.framework */,
@@ -370,6 +370,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/SMUtilities-aqodlzwbytwtvbbgtrtmjkuhdqau/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/SMUtilities-aqodlzwbytwtvbbgtrtmjkuhdqau/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMUtilitiesSample/SMUtilitiesSample-Prefix.pch";
@@ -385,6 +386,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/SMUtilities-aqodlzwbytwtvbbgtrtmjkuhdqau/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/SMUtilities-aqodlzwbytwtvbbgtrtmjkuhdqau/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMUtilitiesSample/SMUtilitiesSample-Prefix.pch";
@@ -447,6 +449,7 @@
 				9A06EC281438CBFD0056DB72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A06EC291438CBFD0056DB72 /* Build configuration list for PBXNativeTarget "SMUtilitiesSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +458,7 @@
 				9A06EC2B1438CBFD0056DB72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
