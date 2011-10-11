@@ -91,7 +91,7 @@
 // Called when a request returns and its response has been parsed into an object.
 // The resulting object may be a dictionary or an array
 - (void)client:(SMRestClient *)client didLoad:(id)result {
-    if ([client.methodName isEqualToString:@"statuses/public_timeline.json"]) {
+    if ([client.methodName isEqualToString:@"statuses/public_timeline.json"] || nil == client.methodName) {
         STAssertNotNil(result, @"result should not be nil");
         STAssertTrue([result isKindOfClass:[NSArray class]], @"data structure fail");
         NSArray* statuses = (NSArray*)result;
@@ -110,7 +110,7 @@
         STAssertNotNil([res objectForKey:@"profile_text_color"], @"data structure failure");
     } else if ([client.methodName isEqualToString:@"unknown"]) {
         STFail(@"the fail url should not be catched in this method, it hsould be handled in fail with error method");
-    }
+    } 
 }
 
 // Called when a request returns a response.

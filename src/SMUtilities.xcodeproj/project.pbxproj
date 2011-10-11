@@ -25,6 +25,9 @@
 		9AB69A5914445DCE00C5F3F6 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A4C14445DCE00C5F3F6 /* SBJsonWriter.h */; };
 		9AB69A5A14445DCE00C5F3F6 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB69A4D14445DCE00C5F3F6 /* SBJsonWriter.m */; };
 		9AB69A621444604600C5F3F6 /* SMRestClientIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB69A611444604600C5F3F6 /* SMRestClientIntegrationTest.m */; };
+		9AB69A661444796800C5F3F6 /* SMPersistencyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A641444796800C5F3F6 /* SMPersistencyManager.h */; };
+		9AB69A671444796800C5F3F6 /* SMPersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB69A651444796800C5F3F6 /* SMPersistencyManager.m */; };
+		9AB69A69144479BA00C5F3F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB69A68144479BA00C5F3F6 /* CoreData.framework */; };
 		9AC436451438C4BB00CC4F6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC436441438C4BB00CC4F6C /* Foundation.framework */; };
 		9AC4364B1438C4BB00CC4F6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC436491438C4BB00CC4F6C /* InfoPlist.strings */; };
 		9AC436541438C4BB00CC4F6C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC436531438C4BB00CC4F6C /* SenTestingKit.framework */; };
@@ -79,8 +82,11 @@
 		9AB69A4B14445DCE00C5F3F6 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		9AB69A4C14445DCE00C5F3F6 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		9AB69A4D14445DCE00C5F3F6 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		9AB69A601444604600C5F3F6 /* SMRestClientIntegrationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SMRestClientIntegrationTest.h; sourceTree = "<group>"; };
+		9AB69A601444604600C5F3F6 /* SMRestClientIntegrationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMRestClientIntegrationTest.h; sourceTree = "<group>"; };
 		9AB69A611444604600C5F3F6 /* SMRestClientIntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMRestClientIntegrationTest.m; sourceTree = "<group>"; };
+		9AB69A641444796800C5F3F6 /* SMPersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPersistencyManager.h; sourceTree = "<group>"; };
+		9AB69A651444796800C5F3F6 /* SMPersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPersistencyManager.m; sourceTree = "<group>"; };
+		9AB69A68144479BA00C5F3F6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9AC436411438C4BB00CC4F6C /* SMUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = SMUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC436441438C4BB00CC4F6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9AC436481438C4BB00CC4F6C /* SMUtilities-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SMUtilities-Info.plist"; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB69A69144479BA00C5F3F6 /* CoreData.framework in Frameworks */,
 				9AC436451438C4BB00CC4F6C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +191,15 @@
 			name = RestClient;
 			sourceTree = "<group>";
 		};
+		9AB69A631444794700C5F3F6 /* Persistency */ = {
+			isa = PBXGroup;
+			children = (
+				9AB69A641444796800C5F3F6 /* SMPersistencyManager.h */,
+				9AB69A651444796800C5F3F6 /* SMPersistencyManager.m */,
+			);
+			name = Persistency;
+			sourceTree = "<group>";
+		};
 		9AC436331438C4BB00CC4F6C = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +222,7 @@
 		9AC436431438C4BB00CC4F6C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9AB69A68144479BA00C5F3F6 /* CoreData.framework */,
 				9AC436441438C4BB00CC4F6C /* Foundation.framework */,
 				9AC436531438C4BB00CC4F6C /* SenTestingKit.framework */,
 				9AC436551438C4BB00CC4F6C /* UIKit.framework */,
@@ -218,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				9AB69A3A14445BE900C5F3F6 /* UIUtilities */,
+				9AB69A631444794700C5F3F6 /* Persistency */,
 				9AB69A3414445B6F00C5F3F6 /* RestClient */,
 				9AC436761438C60800CC4F6C /* Connection */,
 				9AC436471438C4BB00CC4F6C /* Supporting Files */,
@@ -297,6 +315,7 @@
 				9AB69A5514445DCE00C5F3F6 /* SBJsonBase.h in Headers */,
 				9AB69A5714445DCE00C5F3F6 /* SBJsonParser.h in Headers */,
 				9AB69A5914445DCE00C5F3F6 /* SBJsonWriter.h in Headers */,
+				9AB69A661444796800C5F3F6 /* SMPersistencyManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +465,7 @@
 				9AB69A5614445DCE00C5F3F6 /* SBJsonBase.m in Sources */,
 				9AB69A5814445DCE00C5F3F6 /* SBJsonParser.m in Sources */,
 				9AB69A5A14445DCE00C5F3F6 /* SBJsonWriter.m in Sources */,
+				9AB69A671444796800C5F3F6 /* SMPersistencyManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
