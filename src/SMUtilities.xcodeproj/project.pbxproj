@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AB69A3814445BA400C5F3F6 /* SMRestClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A3614445BA400C5F3F6 /* SMRestClient.h */; };
+		9A39DE5A1445AF3600C688A8 /* SMIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A39DE581445AF3600C688A8 /* SMIndicator.m */; };
+		9A39DE5E1445AF9700C688A8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A39DE5D1445AF9700C688A8 /* QuartzCore.framework */; };
+		9A39DE601445AFEC00C688A8 /* SMIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39DE5F1445AFEC00C688A8 /* SMIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A39DE631445B41D00C688A8 /* SMAsyncImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39DE611445B41D00C688A8 /* SMAsyncImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A39DE641445B41D00C688A8 /* SMAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A39DE621445B41D00C688A8 /* SMAsyncImageView.m */; };
+		9AAA67771445E90F0023F35F /* SMPullRefreshTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAA67751445E90F0023F35F /* SMPullRefreshTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AAA67781445E90F0023F35F /* SMPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAA67761445E90F0023F35F /* SMPullRefreshTableViewController.m */; };
+		9AB69A3814445BA400C5F3F6 /* SMRestClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A3614445BA400C5F3F6 /* SMRestClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AB69A3914445BA400C5F3F6 /* SMRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB69A3714445BA400C5F3F6 /* SMRestClient.m */; };
-		9AB69A3D14445C0100C5F3F6 /* SMAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A3B14445C0100C5F3F6 /* SMAlert.h */; };
+		9AB69A3D14445C0100C5F3F6 /* SMAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A3B14445C0100C5F3F6 /* SMAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AB69A3E14445C0100C5F3F6 /* SMAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB69A3C14445C0100C5F3F6 /* SMAlert.m */; };
 		9AB69A4E14445DCE00C5F3F6 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A4114445DCE00C5F3F6 /* JSON.h */; };
 		9AB69A4F14445DCE00C5F3F6 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A4214445DCE00C5F3F6 /* NSObject+SBJSON.h */; };
@@ -25,7 +32,7 @@
 		9AB69A5914445DCE00C5F3F6 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A4C14445DCE00C5F3F6 /* SBJsonWriter.h */; };
 		9AB69A5A14445DCE00C5F3F6 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB69A4D14445DCE00C5F3F6 /* SBJsonWriter.m */; };
 		9AB69A621444604600C5F3F6 /* SMRestClientIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB69A611444604600C5F3F6 /* SMRestClientIntegrationTest.m */; };
-		9AB69A661444796800C5F3F6 /* SMPersistencyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A641444796800C5F3F6 /* SMPersistencyManager.h */; };
+		9AB69A661444796800C5F3F6 /* SMPersistencyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A641444796800C5F3F6 /* SMPersistencyManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AB69A671444796800C5F3F6 /* SMPersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB69A651444796800C5F3F6 /* SMPersistencyManager.m */; };
 		9AB69A69144479BA00C5F3F6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB69A68144479BA00C5F3F6 /* CoreData.framework */; };
 		9AC436451438C4BB00CC4F6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC436441438C4BB00CC4F6C /* Foundation.framework */; };
@@ -65,6 +72,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A39DE581445AF3600C688A8 /* SMIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMIndicator.m; sourceTree = "<group>"; };
+		9A39DE5D1445AF9700C688A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9A39DE5F1445AFEC00C688A8 /* SMIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMIndicator.h; sourceTree = "<group>"; };
+		9A39DE611445B41D00C688A8 /* SMAsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAsyncImageView.h; sourceTree = "<group>"; };
+		9A39DE621445B41D00C688A8 /* SMAsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAsyncImageView.m; sourceTree = "<group>"; };
+		9AAA67751445E90F0023F35F /* SMPullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPullRefreshTableViewController.h; sourceTree = "<group>"; };
+		9AAA67761445E90F0023F35F /* SMPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPullRefreshTableViewController.m; sourceTree = "<group>"; };
 		9AB69A3614445BA400C5F3F6 /* SMRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMRestClient.h; sourceTree = "<group>"; };
 		9AB69A3714445BA400C5F3F6 /* SMRestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMRestClient.m; sourceTree = "<group>"; };
 		9AB69A3B14445C0100C5F3F6 /* SMAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAlert.h; sourceTree = "<group>"; };
@@ -115,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A39DE5E1445AF9700C688A8 /* QuartzCore.framework in Frameworks */,
 				9AB69A69144479BA00C5F3F6 /* CoreData.framework in Frameworks */,
 				9AC436451438C4BB00CC4F6C /* Foundation.framework in Frameworks */,
 			);
@@ -148,8 +163,14 @@
 		9AB69A3A14445BE900C5F3F6 /* UIUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				9A39DE611445B41D00C688A8 /* SMAsyncImageView.h */,
+				9A39DE621445B41D00C688A8 /* SMAsyncImageView.m */,
+				9A39DE5F1445AFEC00C688A8 /* SMIndicator.h */,
+				9A39DE581445AF3600C688A8 /* SMIndicator.m */,
 				9AB69A3B14445C0100C5F3F6 /* SMAlert.h */,
 				9AB69A3C14445C0100C5F3F6 /* SMAlert.m */,
+				9AAA67751445E90F0023F35F /* SMPullRefreshTableViewController.h */,
+				9AAA67761445E90F0023F35F /* SMPullRefreshTableViewController.m */,
 			);
 			name = UIUtilities;
 			sourceTree = "<group>";
@@ -222,6 +243,7 @@
 		9AC436431438C4BB00CC4F6C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A39DE5D1445AF9700C688A8 /* QuartzCore.framework */,
 				9AB69A68144479BA00C5F3F6 /* CoreData.framework */,
 				9AC436441438C4BB00CC4F6C /* Foundation.framework */,
 				9AC436531438C4BB00CC4F6C /* SenTestingKit.framework */,
@@ -308,6 +330,10 @@
 				9AC4367D1438C62500CC4F6C /* SMConnection.h in Headers */,
 				9AB69A3814445BA400C5F3F6 /* SMRestClient.h in Headers */,
 				9AB69A3D14445C0100C5F3F6 /* SMAlert.h in Headers */,
+				9AB69A661444796800C5F3F6 /* SMPersistencyManager.h in Headers */,
+				9A39DE601445AFEC00C688A8 /* SMIndicator.h in Headers */,
+				9A39DE631445B41D00C688A8 /* SMAsyncImageView.h in Headers */,
+				9AAA67771445E90F0023F35F /* SMPullRefreshTableViewController.h in Headers */,
 				9AB69A4E14445DCE00C5F3F6 /* JSON.h in Headers */,
 				9AB69A4F14445DCE00C5F3F6 /* NSObject+SBJSON.h in Headers */,
 				9AB69A5114445DCE00C5F3F6 /* NSString+SBJSON.h in Headers */,
@@ -315,7 +341,6 @@
 				9AB69A5514445DCE00C5F3F6 /* SBJsonBase.h in Headers */,
 				9AB69A5714445DCE00C5F3F6 /* SBJsonParser.h in Headers */,
 				9AB69A5914445DCE00C5F3F6 /* SBJsonWriter.h in Headers */,
-				9AB69A661444796800C5F3F6 /* SMPersistencyManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +491,9 @@
 				9AB69A5814445DCE00C5F3F6 /* SBJsonParser.m in Sources */,
 				9AB69A5A14445DCE00C5F3F6 /* SBJsonWriter.m in Sources */,
 				9AB69A671444796800C5F3F6 /* SMPersistencyManager.m in Sources */,
+				9A39DE5A1445AF3600C688A8 /* SMIndicator.m in Sources */,
+				9A39DE641445B41D00C688A8 /* SMAsyncImageView.m in Sources */,
+				9AAA67781445E90F0023F35F /* SMPullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
