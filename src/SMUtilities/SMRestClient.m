@@ -23,23 +23,36 @@
 
 - (id)initWithMethodName:(NSString*)methodName andIdParam:(NSString*)idParam andParams:(NSMutableDictionary*)params andHttpMethod:(NSString*)httpMethod
 {
+    return [self initWithURL:nil andMethodName:methodName andIdParam:idParam andParams:params andHttpMethod:httpMethod];
+}
+
+- (id)initWithURL:(NSString*)theUrl andMethodName:(NSString*)methodName andIdParam:(NSString*)idParam andParams:(NSMutableDictionary*)params andHttpMethod:(NSString*)httpMethod
+{
     self = [super init];
     if (self) {
         self.params = params;
         self.httpMethod = httpMethod;
         self.methodName = methodName;
         self.idParam = idParam;
-        self.url = nil;
+        self.url = theUrl;
     }
-    return self;
+    return self;    
 }
 
-+ (SMRestClient*)restClientWithMethodName:(NSString*)methodName andIdParam:(NSString*)idParam andParams:(NSMutableDictionary*)params andHttpMethod:(NSString*)httpMethod {
++ (SMRestClient*)restClientWithURL:(NSString*)theUrl andMethodName:(NSString*)methodName andIdParam:(NSString*)idParam andParams:(NSMutableDictionary*)params andHttpMethod:(NSString*)httpMethod
+{
+    SMRestClient* client = [[[SMRestClient alloc] initWithURL:theUrl andMethodName:methodName andIdParam:idParam andParams:params andHttpMethod:httpMethod] autorelease];
+    return client;
+}
+
++ (SMRestClient*)restClientWithMethodName:(NSString*)methodName andIdParam:(NSString*)idParam andParams:(NSMutableDictionary*)params andHttpMethod:(NSString*)httpMethod 
+{
     SMRestClient* client = [[[SMRestClient alloc] initWithMethodName:methodName andIdParam:idParam andParams:params andHttpMethod:httpMethod] autorelease];
     return client;
 }
 
-+ (SMRestClient*)restClientWithUrl:(NSString*)theUrl andParams:(NSMutableDictionary*)params andHttpMethod:(NSString*)httpMethod {
++ (SMRestClient*)restClientWithUrl:(NSString*)theUrl andParams:(NSMutableDictionary*)params andHttpMethod:(NSString*)httpMethod 
+{
     SMRestClient* client = [[[SMRestClient alloc] initWithMethodName:nil andIdParam:nil andParams:params andHttpMethod:httpMethod] autorelease];
     [client setUrl:theUrl];
     return client;
