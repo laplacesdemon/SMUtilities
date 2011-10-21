@@ -17,7 +17,7 @@
 @end
 
 @implementation SMRestClient
-@synthesize delegate=_delegate, url=_url, httpMethod=_httpMethod, params=_params, methodName=_methodName, connection=_connection, idParam=_idParam;
+@synthesize delegate=_delegate, url=_url, httpMethod=_httpMethod, params=_params, methodName=_methodName, connection=_connection, idParam=_idParam, tag=_tag;
 
 #pragma mark - initializer
 
@@ -53,6 +53,7 @@
     [_httpMethod release];
     [_methodName release];
     [_params release];
+    [_tag release];
     [super dealloc];
 }
 
@@ -168,6 +169,11 @@
         _isLoading = NO;
         [_delegate client:self didFailWithError:nil];
     }
+}
+
+- (void) executeWithTag:(NSString*)theTag {
+    [self setTag:theTag];
+    [self execute];
 }
 
 /**

@@ -29,6 +29,10 @@
     NSURLConnection* _connection;
     NSMutableData* _receivedData;
     BOOL _isLoading;
+    
+    // useful to identify the request in the delegator if it is shared by 
+    // different instances of the rest client
+    NSString* _tag;
 }
 
 @property (nonatomic, assign) id<SMRestClientDelegate> delegate;
@@ -38,6 +42,7 @@
 @property (nonatomic, copy) NSString* idParam;
 @property (nonatomic, retain) NSMutableDictionary* params;
 @property (nonatomic, assign) NSURLConnection* connection;
+@property (nonatomic, retain) NSString* tag;
 
 // init methods
 - (id)initWithMethodName:(NSString*)methodName andIdParam:(NSString*)idParam andParams:(NSMutableDictionary*)params andHttpMethod:(NSString*)httpMethod;
@@ -47,6 +52,7 @@
 // class methods
 - (BOOL) loading; // returns YES if the request is being sent
 - (void) execute; // creates the connection and starts the operation
+- (void) executeWithTag:(NSString*)theTag; // creates connection and sets the tag as an identifier
 
 // generates the url using the baseUrl, methodName and additional params 
 - (NSURL*) generateURL;
@@ -58,6 +64,9 @@
 @protocol SMRestClientDelegate <NSObject>
 
 // called just before sending the request
+/**
+ *
+ */
 - (void)clientWillStart:(SMRestClient *)client;
 
 // called when the server responds
