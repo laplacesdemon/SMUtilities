@@ -17,7 +17,17 @@
 @end
 
 @implementation SMRestClient
-@synthesize delegate=_delegate, url=_url, httpMethod=_httpMethod, params=_params, methodName=_methodName, connection=_connection, idParam=_idParam, tag=_tag;
+@synthesize 
+delegate=_delegate, 
+url=_url, 
+httpMethod=_httpMethod, 
+params=_params, 
+methodName=_methodName, 
+connection=_connection, 
+idParam=_idParam, 
+authUsername=_authUsername,
+authPassword=_authPassword,
+tag=_tag;
 
 #pragma mark - initializer
 
@@ -35,6 +45,7 @@
         self.methodName = methodName;
         self.idParam = idParam;
         self.url = theUrl;
+        _authenticationMethod = nil;
     }
     return self;    
 }
@@ -278,6 +289,42 @@
         NSLog(@"the response is not cached");
     }*/
     return cachedResponse;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    if (_authenticationMethod == nil) 
+        return;
+    
+    // for this version, only the basic and digest authentication are supportted
+    if (!(_authenticationMethod == NSURLAuthenticationMethodHTTPBasic 
+        || _authenticationMethod == NSURLAuthenticationMethodHTTPDigest
+        || _authenticationMethod == NSURLAuthenticationMethodDefault))
+        return;
+    
+    if (_authUsername == nil || _authPassword == nil)
+        return;
+    
+    if ([challenge previousFailureCount] == 0) {
+        NSURLCredential* credential = [NSURLCredential credentialWithUser:_authUsername password:_authPassword persistence:NSURLCredentialPersistenceNone];
+        [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
+    } else {
+        [[challenge sender] cancelAuthenticationChallenge:challenge];
+        NSError* error = [NSError errorWithDomain:@"Whasta" code:500 userInfo:nil];
+        [[self delegate] client:self didFailWithError:error];
+    }
+
+}
+
+- (void) connection:(NSURLConnection *)connection didCancelAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    NSLog(@"did cancel auth challenge");
+}
+
+- (BOOL) connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
+{
+    _authenticationMethod = [protectionSpace authenticationMethod];
+    return YES;
 }
 
 @end

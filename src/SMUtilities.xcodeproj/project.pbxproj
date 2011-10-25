@@ -12,6 +12,7 @@
 		9A39DE601445AFEC00C688A8 /* SMIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39DE5F1445AFEC00C688A8 /* SMIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A39DE631445B41D00C688A8 /* SMAsyncImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39DE611445B41D00C688A8 /* SMAsyncImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A39DE641445B41D00C688A8 /* SMAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A39DE621445B41D00C688A8 /* SMAsyncImageView.m */; };
+		9A7BA02F1456B2FA00F8D906 /* SMRestClientBasicAuthenticationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7BA02E1456B2FA00F8D906 /* SMRestClientBasicAuthenticationTest.m */; };
 		9AAA67771445E90F0023F35F /* SMPullRefreshTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAA67751445E90F0023F35F /* SMPullRefreshTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AAA67781445E90F0023F35F /* SMPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAA67761445E90F0023F35F /* SMPullRefreshTableViewController.m */; };
 		9AB69A3814445BA400C5F3F6 /* SMRestClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB69A3614445BA400C5F3F6 /* SMRestClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -77,6 +78,8 @@
 		9A39DE5F1445AFEC00C688A8 /* SMIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMIndicator.h; sourceTree = "<group>"; };
 		9A39DE611445B41D00C688A8 /* SMAsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAsyncImageView.h; sourceTree = "<group>"; };
 		9A39DE621445B41D00C688A8 /* SMAsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAsyncImageView.m; sourceTree = "<group>"; };
+		9A7BA02D1456B2FA00F8D906 /* SMRestClientBasicAuthenticationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMRestClientBasicAuthenticationTest.h; sourceTree = "<group>"; };
+		9A7BA02E1456B2FA00F8D906 /* SMRestClientBasicAuthenticationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMRestClientBasicAuthenticationTest.m; sourceTree = "<group>"; };
 		9AAA67751445E90F0023F35F /* SMPullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPullRefreshTableViewController.h; sourceTree = "<group>"; };
 		9AAA67761445E90F0023F35F /* SMPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPullRefreshTableViewController.m; sourceTree = "<group>"; };
 		9AB69A3614445BA400C5F3F6 /* SMRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMRestClient.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 			children = (
 				9AB69A601444604600C5F3F6 /* SMRestClientIntegrationTest.h */,
 				9AB69A611444604600C5F3F6 /* SMRestClientIntegrationTest.m */,
+				9A7BA02D1456B2FA00F8D906 /* SMRestClientBasicAuthenticationTest.h */,
+				9A7BA02E1456B2FA00F8D906 /* SMRestClientBasicAuthenticationTest.m */,
 			);
 			name = RestClient;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 		9AC436351438C4BB00CC4F6C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0410;
 				ORGANIZATIONNAME = "suleymanmelikoglu@gmail.com";
 			};
 			buildConfigurationList = 9AC436381438C4BB00CC4F6C /* Build configuration list for PBXProject "SMUtilities" */;
@@ -505,6 +511,7 @@
 				9AC4368D1438C69500CC4F6C /* SMConnectionTest.m in Sources */,
 				9AC436901438C7BD00CC4F6C /* SMCacheConnectionTest.m in Sources */,
 				9AB69A621444604600C5F3F6 /* SMRestClientIntegrationTest.m in Sources */,
+				9A7BA02F1456B2FA00F8D906 /* SMRestClientBasicAuthenticationTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

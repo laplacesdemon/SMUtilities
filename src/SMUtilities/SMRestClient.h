@@ -15,9 +15,8 @@
 
 @protocol SMRestClientDelegate;
 
-/**
- * communicates with Whasta server
- */
+// communicates with a rest server, fetches data and parses them
+// SMRestClient supports basic http authorization, authUsername and authPassword should be set in order to use basic authentication
 @interface SMRestClient : NSObject {
     id<SMRestClientDelegate> _delegate;
     
@@ -29,6 +28,11 @@
     NSURLConnection* _connection;
     NSMutableData* _receivedData;
     BOOL _isLoading;
+    
+    // authentication
+    NSString* _authenticationMethod;
+    NSString* _authUsername;
+    NSString* _authPassword;
     
     // useful to identify the request in the delegator if it is shared by 
     // different instances of the rest client
@@ -42,6 +46,8 @@
 @property (nonatomic, copy) NSString* idParam;
 @property (nonatomic, retain) NSMutableDictionary* params;
 @property (nonatomic, assign) NSURLConnection* connection;
+@property (nonatomic, retain) NSString* authUsername;
+@property (nonatomic, retain) NSString* authPassword;
 @property (nonatomic, retain) NSString* tag;
 
 // init methods
@@ -65,10 +71,9 @@
 
 @protocol SMRestClientDelegate <NSObject>
 
+@optional
+
 // called just before sending the request
-/**
- *
- */
 - (void)clientWillStart:(SMRestClient *)client;
 
 // called when the server responds
