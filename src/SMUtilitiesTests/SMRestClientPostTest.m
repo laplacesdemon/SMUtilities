@@ -1,27 +1,32 @@
 //
-//  SMRestClientBasicAuthenticationTest.m
+//  SMRestClientPostTest.m
 //  SMUtilities
 //
 //  Created by Suleyman Melikoglu on 10/25/11.
 //  Copyright 2011 suleymanmelikoglu@gmail.com. All rights reserved.
 //
 
-#import "SMRestClientBasicAuthenticationTest.h"
+#import "SMRestClientPostTest.h"
 
-@implementation SMRestClientBasicAuthenticationTest
+@implementation SMRestClientPostTest
 
-- (void) setUp
+- (void) setUp 
 {
     url = @"http://localhost/sanalikaApp/en/api/";
 }
 
-- (void)testRestClientShouldDoBasicAuth 
+- (void)testPostMethod
 {
-    SMRestClient* client = [SMRestClient restClientWithURL:url andMethodName:@"auth" andIdParam:nil andParams:nil andHttpMethod:@"GET"];
+    
+    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   @"laplacesdemon", @"username",
+                                   @"12345678", @"password",
+                                   nil];
+    SMRestClient* client = [SMRestClient restClientWithURL:url andMethodName:@"auth" andIdParam:nil andParams:params andHttpMethod:@"POST"];
     [client setDelegate:self];
     [client setAuthUsername:@"sanalikaApp"];
     [client setAuthPassword:@"12345678"];
-    [client executeWithTag:@"authGet"];
+    [client executeWithTag:@"testShouldAuthenticate"];
     
     // this is a workaround in order to test async requests
     NSRunLoop* runLoop = [NSRunLoop currentRunLoop]; 
@@ -45,18 +50,19 @@
 // called when an error occurred
 - (void)client:(SMRestClient *)client didFailWithError:(NSError *)error
 {
-    NSLog(@"request has failed with code:%d desc: %@", [error code], [error description]);    
+    NSLog(@"request has failed with message:%@ code:%d desc: %@", [client tag], [error code], [error description]);    
+    STFail(@"rest client should not fail");
 }
 
 // Called when a request returns and its response has been parsed into an object.
 // The resulting object may be a dictionary or an array
 - (void)client:(SMRestClient *)client didLoad:(id)result
 {
-    NSLog(@"returned parsed result %@", result);
-
-    STAssertTrue([result isKindOfClass:[NSDictionary class]], @"the result should be a dictionary");
-    STAssertEquals([[result objectForKey:@"code"] integerValue], 405, @"result should be 405");
-    STAssertTrue([[result objectForKey:@"msg"] isEqualToString:@"405 Method Not Allowed"] , @"result should be 405 Method Not Allowed");
+    NSLog(@"did load message:%@ result:%@", [client tag], result);
+    if ([[client tag] isEqualToString:@"testShouldAuthenticate"]) {
+        STAssertTrue([result isKindOfClass:[NSDictionary class]], @"the result should be a dictionary");
+        STAssertTrue([[result objectForKey:@"res"] isEqualToString:@"OK"] , @"result should return OK");
+    }
 }
 
 // Called when a request returns a response.
@@ -65,5 +71,6 @@
 {
     
 }
+
 
 @end

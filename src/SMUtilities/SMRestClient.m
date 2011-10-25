@@ -8,8 +8,10 @@
 
 #import "SMRestClient.h"
 #import "JSON.h"
+#import <UIKit/UIKit.h>
 
 @interface SMRestClient(PrivateMethods)
+- (void)utfAppendBody:(NSMutableData *)body data:(NSString *)data;
 - (NSMutableData*)_generatePostBody;
 - (id)formError:(NSInteger)code userInfo:(NSDictionary *) errorData;
 - (id)parseJsonResponse:(NSData *)data error:(NSError **)error;
@@ -46,6 +48,7 @@ tag=_tag;
         self.idParam = idParam;
         self.url = theUrl;
         _authenticationMethod = nil;
+        stringBoundary = @"3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f";
     }
     return self;    
 }
@@ -83,8 +86,61 @@ tag=_tag;
 
 #pragma mark - private methods
 
+- (void)_utfAppendBody:(NSMutableData *)body data:(NSString *)data {
+    [body appendData:[data dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
 - (NSMutableData*)_generatePostBody {
-    return nil;
+    NSMutableData *body = [NSMutableData data];
+    NSString *endLine = [NSString stringWithFormat:@"\r\n--%@\r\n", stringBoundary];
+    NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionary];
+    
+    [self _utfAppendBody:body data:[NSString stringWithFormat:@"--%@\r\n", stringBoundary]];
+    
+    for (id key in [_params keyEnumerator]) {
+        
+        if (([[_params valueForKey:key] isKindOfClass:[UIImage class]])
+            || ([[_params valueForKey:key] isKindOfClass:[NSData class]])) 
+        {    
+            [dataDictionary setObject:[_params valueForKey:key] forKey:key];
+            continue;   
+        }
+        
+        [self _utfAppendBody:body
+                       data:[NSString
+                             stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n",
+                             key]];
+        [self _utfAppendBody:body data:[_params valueForKey:key]];
+        [self _utfAppendBody:body data:endLine];
+    }
+    
+    if ([dataDictionary count] > 0) {
+        for (id key in dataDictionary) {
+            NSObject *dataParam = [dataDictionary valueForKey:key];
+            if ([dataParam isKindOfClass:[UIImage class]]) {
+                NSData* imageData = UIImagePNGRepresentation((UIImage*)dataParam);
+                [self _utfAppendBody:body
+                               data:[NSString stringWithFormat:
+                                     @"Content-Disposition: form-data; filename=\"%@\"\r\n", key]];
+                [self _utfAppendBody:body
+                               data:[NSString stringWithString:@"Content-Type: image/png\r\n\r\n"]];
+                [body appendData:imageData];
+            } else {
+                NSAssert([dataParam isKindOfClass:[NSData class]],
+                         @"dataParam must be a UIImage or NSData");
+                [self _utfAppendBody:body
+                               data:[NSString stringWithFormat:
+                                     @"Content-Disposition: form-data; filename=\"%@\"\r\n", key]];
+                [self _utfAppendBody:body
+                               data:[NSString stringWithString:@"Content-Type: content/unknown\r\n\r\n"]];
+                [body appendData:(NSData*)dataParam];
+            }
+            [self _utfAppendBody:body data:endLine];
+            
+        }
+    }
+    
+    return body;
 }
 
 - (id)formError:(NSInteger)code userInfo:(NSDictionary *) errorData {
@@ -179,7 +235,9 @@ tag=_tag;
     [request setHTTPMethod:self.httpMethod];
     
     if ([self.httpMethod isEqualToString: @"POST"]) {
-        [request setValue:@"multipart/form-data;" forHTTPHeaderField:@"Content-Type"];
+        NSString* contentType = [NSString
+                                 stringWithFormat:@"multipart/form-data; boundary=%@", stringBoundary];
+        [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
         [request setHTTPBody:[self _generatePostBody]];
     }
     
@@ -260,8 +318,6 @@ tag=_tag;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"Succeeded! Received %d bytes of data",[_receivedData length]);
-    
     [self handleResponseData:_receivedData];
     _isLoading = NO;
     
@@ -318,7 +374,6 @@ tag=_tag;
 
 - (void) connection:(NSURLConnection *)connection didCancelAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
-    NSLog(@"did cancel auth challenge");
 }
 
 - (BOOL) connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace

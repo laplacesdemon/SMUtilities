@@ -34,6 +34,9 @@
     NSString* _authUsername;
     NSString* _authPassword;
     
+    // string boundary for post method
+    NSString* stringBoundary;
+    
     // useful to identify the request in the delegator if it is shared by 
     // different instances of the rest client
     NSString* _tag;
