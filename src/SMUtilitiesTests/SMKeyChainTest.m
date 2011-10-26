@@ -10,6 +10,12 @@
 
 @implementation SMKeyChainTest
 
+- (void) tearDown
+{
+    NSString* account = @"myAppName";
+    [SMKeyChain removeStringForKey:account];
+}
+
 - (void) testAddingAndReadingKey
 {
     NSString* account = @"myAppName";
