@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A18E79C1458562700139FA0 /* SMKeyChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A18E79A1458562700139FA0 /* SMKeyChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A18E79D1458562700139FA0 /* SMKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A18E79B1458562700139FA0 /* SMKeyChain.m */; };
+		9A18E7A114585AC000139FA0 /* SMKeyChainTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A18E7A014585AC000139FA0 /* SMKeyChainTest.m */; };
+		9A18E7A314585C9E00139FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A18E7A214585C9E00139FA0 /* Security.framework */; };
+		9A18E7A514585D7E00139FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A18E7A414585D7E00139FA0 /* Security.framework */; };
 		9A39DE5A1445AF3600C688A8 /* SMIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A39DE581445AF3600C688A8 /* SMIndicator.m */; };
 		9A39DE5E1445AF9700C688A8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A39DE5D1445AF9700C688A8 /* QuartzCore.framework */; };
 		9A39DE601445AFEC00C688A8 /* SMIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39DE5F1445AFEC00C688A8 /* SMIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -74,6 +79,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A18E79A1458562700139FA0 /* SMKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMKeyChain.h; sourceTree = "<group>"; };
+		9A18E79B1458562700139FA0 /* SMKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKeyChain.m; sourceTree = "<group>"; };
+		9A18E79F14585AC000139FA0 /* SMKeyChainTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMKeyChainTest.h; sourceTree = "<group>"; };
+		9A18E7A014585AC000139FA0 /* SMKeyChainTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKeyChainTest.m; sourceTree = "<group>"; };
+		9A18E7A214585C9E00139FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9A18E7A414585D7E00139FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9A39DE581445AF3600C688A8 /* SMIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMIndicator.m; sourceTree = "<group>"; };
 		9A39DE5D1445AF9700C688A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9A39DE5F1445AFEC00C688A8 /* SMIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMIndicator.h; sourceTree = "<group>"; };
@@ -135,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A18E7A314585C9E00139FA0 /* Security.framework in Frameworks */,
 				9A39DE5E1445AF9700C688A8 /* QuartzCore.framework in Frameworks */,
 				9AB69A69144479BA00C5F3F6 /* CoreData.framework in Frameworks */,
 				9AC436451438C4BB00CC4F6C /* Foundation.framework in Frameworks */,
@@ -145,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A18E7A514585D7E00139FA0 /* Security.framework in Frameworks */,
 				9AC436541438C4BB00CC4F6C /* SenTestingKit.framework in Frameworks */,
 				9AC436561438C4BB00CC4F6C /* UIKit.framework in Frameworks */,
 				9AC436571438C4BB00CC4F6C /* Foundation.framework in Frameworks */,
@@ -157,6 +170,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A18E7981458560D00139FA0 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				9A18E79A1458562700139FA0 /* SMKeyChain.h */,
+				9A18E79B1458562700139FA0 /* SMKeyChain.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		9A18E79E14585A5300139FA0 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				9A18E79F14585AC000139FA0 /* SMKeyChainTest.h */,
+				9A18E7A014585AC000139FA0 /* SMKeyChainTest.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
 		9AB69A3414445B6F00C5F3F6 /* RestClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +284,8 @@
 		9AC436431438C4BB00CC4F6C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A18E7A414585D7E00139FA0 /* Security.framework */,
+				9A18E7A214585C9E00139FA0 /* Security.framework */,
 				9A39DE5D1445AF9700C688A8 /* QuartzCore.framework */,
 				9AB69A68144479BA00C5F3F6 /* CoreData.framework */,
 				9AC436441438C4BB00CC4F6C /* Foundation.framework */,
@@ -266,6 +299,7 @@
 		9AC436461438C4BB00CC4F6C /* SMUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				9A18E7981458560D00139FA0 /* Security */,
 				9AB69A3A14445BE900C5F3F6 /* UIUtilities */,
 				9AB69A631444794700C5F3F6 /* Persistency */,
 				9AB69A3414445B6F00C5F3F6 /* RestClient */,
@@ -289,6 +323,7 @@
 		9AC436601438C4BB00CC4F6C /* SMUtilitiesTests */ = {
 			isa = PBXGroup;
 			children = (
+				9A18E79E14585A5300139FA0 /* Security */,
 				9AB69A5B14445F3A00C5F3F6 /* RestClient */,
 				9AC4367F1438C65E00CC4F6C /* Connection */,
 				9AC436661438C4BB00CC4F6C /* SMUtilitiesTests.h */,
@@ -344,6 +379,7 @@
 				9A39DE601445AFEC00C688A8 /* SMIndicator.h in Headers */,
 				9A39DE631445B41D00C688A8 /* SMAsyncImageView.h in Headers */,
 				9AAA67771445E90F0023F35F /* SMPullRefreshTableViewController.h in Headers */,
+				9A18E79C1458562700139FA0 /* SMKeyChain.h in Headers */,
 				9AB69A4E14445DCE00C5F3F6 /* JSON.h in Headers */,
 				9AB69A4F14445DCE00C5F3F6 /* NSObject+SBJSON.h in Headers */,
 				9AB69A5114445DCE00C5F3F6 /* NSString+SBJSON.h in Headers */,
@@ -505,6 +541,7 @@
 				9A39DE5A1445AF3600C688A8 /* SMIndicator.m in Sources */,
 				9A39DE641445B41D00C688A8 /* SMAsyncImageView.m in Sources */,
 				9AAA67781445E90F0023F35F /* SMPullRefreshTableViewController.m in Sources */,
+				9A18E79D1458562700139FA0 /* SMKeyChain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +555,7 @@
 				9AB69A621444604600C5F3F6 /* SMRestClientIntegrationTest.m in Sources */,
 				9A7BA02F1456B2FA00F8D906 /* SMRestClientBasicAuthenticationTest.m in Sources */,
 				9ACBFC7914570581001D327B /* SMRestClientPostTest.m in Sources */,
+				9A18E7A114585AC000139FA0 /* SMKeyChainTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
