@@ -213,10 +213,15 @@ tag=_tag;
     NSError* error = nil;
     id result = [self parseJsonResponse:data error:&error];
     
-    if (error)
-        [_delegate client:self didFailWithError:error];
-    else
-        [_delegate client:self didLoad:(result == nil ? data : result)];
+    if (error) {
+        if ([_delegate respondsToSelector:@selector(client:didFailWithError:)]) {
+            [_delegate client:self didFailWithError:error];
+        }
+    } else {
+        if ([_delegate respondsToSelector:@selector(client:didLoad:)]) {
+            [_delegate client:self didLoad:(result == nil ? data : result)];                        
+        }
+    }
 }
 
 #pragma mark - methods
@@ -226,8 +231,9 @@ tag=_tag;
 }
 
 - (void) execute {
-    if([_delegate respondsToSelector:@selector(clientWillStart:)])
+    if([_delegate respondsToSelector:@selector(clientWillStart:)]) {
         [_delegate clientWillStart:self];
+    }
     
     // create the request
     NSMutableURLRequest* request = [[[NSMutableURLRequest alloc] initWithURL:[self generateURL] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:180.0] autorelease];
@@ -249,7 +255,9 @@ tag=_tag;
     } else {
         // the connection failed
         _isLoading = NO;
-        [_delegate client:self didFailWithError:nil];
+        if ([_delegate respondsToSelector:@selector(client:didFailWithError:)]) {
+            [_delegate client:self didFailWithError:nil];
+        }
     }
 }
 
@@ -274,12 +282,14 @@ tag=_tag;
     }
     
     // add the params as query string
-    if ([self.params count] > 0) {
-        [str appendString:@"?"];
-        for (NSString* key in self.params) {
-            NSString* val = [self.params objectForKey:key];
-            [str appendFormat:@"%@=%@&", key, val];
-        }
+    if (![[self httpMethod] isEqualToString:@"POST"]) {
+        if ([self.params count] > 0) {
+            [str appendString:@"?"];
+            for (NSString* key in self.params) {
+                NSString* val = [self.params objectForKey:key];
+                [str appendFormat:@"%@=%@&", key, val];
+            }
+        }        
     }
     
     return [NSURL URLWithString:str];
@@ -295,7 +305,9 @@ tag=_tag;
     // create the received response data object
     _receivedData = [[NSMutableData alloc] init];
     [_receivedData setLength:0];
-    [_delegate client:self didReceiveResponse:response];
+    if ([_delegate respondsToSelector:@selector(client:didReceiveResponse:)]) {
+        [_delegate client:self didReceiveResponse:response];
+    }
 }
 
 /**
@@ -308,13 +320,11 @@ tag=_tag;
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [_connection release];
     [_receivedData release];
-    
-    /*NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
-    */
-    
-    [_delegate client:self didFailWithError:error];
+       
+    if ([_delegate respondsToSelector:@selector(client:didFailWithError:)]) {
+        [_delegate client:self didFailWithError:error];        
+    }
+
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -367,7 +377,9 @@ tag=_tag;
     } else {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
         NSError* error = [NSError errorWithDomain:@"Whasta" code:500 userInfo:nil];
-        [[self delegate] client:self didFailWithError:error];
+        if ([[self delegate] respondsToSelector:@selector(client:didFailWithError:)]) {
+            [[self delegate] client:self didFailWithError:error];            
+        }
     }
 
 }

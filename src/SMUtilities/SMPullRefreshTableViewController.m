@@ -129,6 +129,9 @@
     if (scrollView.contentOffset.y <= -REFRESH_HEADER_HEIGHT) {
         // Released above the header
         [self startLoading];
+        
+        // Refresh action!
+        [self refresh];
     }
 }
 
@@ -143,9 +146,6 @@
     refreshArrow.hidden = YES;
     [refreshSpinner startAnimating];
     [UIView commitAnimations];
-    
-    // Refresh action!
-    [self refresh];
 }
 
 - (void)stopLoading {

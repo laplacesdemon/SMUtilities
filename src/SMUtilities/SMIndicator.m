@@ -11,6 +11,7 @@
 
 @implementation SMIndicator
 @synthesize label;
+@synthesize msg;
 @synthesize activityIndicator;
 
 - (id)initWithLoadingText:(NSString*)theText 
@@ -41,6 +42,17 @@
         [label setFont:[UIFont fontWithName:@"Arial" size:12]];
         [label setText:theText];
         [self addSubview:label];
+        
+        CGRect rectMsg = CGRectMake(10, 10, 180, 80);
+        msg = [[UILabel alloc] initWithFrame:rectMsg];
+        [msg setBackgroundColor:[UIColor clearColor]];
+        [msg setTextColor:[UIColor whiteColor]];
+        [msg setFont:[UIFont fontWithName:@"Arial" size:12]];
+        [msg setHidden:YES];
+        [msg setAdjustsFontSizeToFitWidth:YES];
+        [msg setNumberOfLines:4];
+        [msg setTextAlignment:UITextAlignmentCenter];
+        [self addSubview:msg];
     }
     return self;
 }
@@ -49,15 +61,6 @@
 {
     return [self initWithLoadingText:@"Please Wait"];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 #pragma mark - animation methods
 
@@ -68,6 +71,8 @@
 -(void)startAnimating {
     //if (isAnimating) return;
     isAnimating = YES;
+    [label setHidden:NO];
+    [msg setHidden:YES];
     [activityIndicator startAnimating];
 }
 
@@ -90,7 +95,9 @@
 }
 
 - (void)showMessage:(NSString*)message forSeconds:(NSTimeInterval)seconds {
-    [[self label] setText:message];
+    [msg setText:message];
+    [msg setHidden:NO];
+    [label setHidden:YES];
     [self performSelector:@selector(remove) withObject:self afterDelay:seconds];
 }
 
@@ -107,6 +114,7 @@
 -(void) dealloc {
     [activityIndicator release];
     [label release];
+    [msg release];
     [super dealloc];
 }
 

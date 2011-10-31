@@ -13,12 +13,13 @@
 @interface SMIndicator : UIView {
     UIActivityIndicatorView* activityIndicator;
     UILabel* label;
-    
+    UILabel* msg;
 @private
     BOOL isAnimating;
 }
 
 @property (nonatomic, retain) UILabel* label;
+@property (nonatomic, retain) UILabel* msg;
 @property (nonatomic, retain) UIActivityIndicatorView* activityIndicator;
 
 - (id)initWithLoadingText:(NSString*)theText;

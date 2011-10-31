@@ -75,7 +75,6 @@
 @protocol SMRestClientDelegate <NSObject>
 
 @optional
-
 // called just before sending the request
 - (void)clientWillStart:(SMRestClient *)client;
 
