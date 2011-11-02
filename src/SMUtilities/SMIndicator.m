@@ -106,7 +106,7 @@
     [UIView setAnimationDuration:1];
     [self setAlpha:0];
     [UIView commitAnimations];
-    [self performSelector:@selector(removeFromSuperview) withObject:self afterDelay:2];
+    [self performSelector:@selector(removeFromSuperview) withObject:self afterDelay:1];
 }
 
 #pragma mark - memory management
