@@ -48,7 +48,6 @@
 		9AC436571438C4BB00CC4F6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC436441438C4BB00CC4F6C /* Foundation.framework */; };
 		9AC436591438C4BB00CC4F6C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC436581438C4BB00CC4F6C /* CoreGraphics.framework */; };
 		9AC4365E1438C4BB00CC4F6C /* SMUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC436411438C4BB00CC4F6C /* SMUtilities.framework */; };
-		9AC4365F1438C4BB00CC4F6C /* SMUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC436411438C4BB00CC4F6C /* SMUtilities.framework */; };
 		9AC436651438C4BB00CC4F6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC436631438C4BB00CC4F6C /* InfoPlist.strings */; };
 		9AC436671438C4BB00CC4F6C /* SMUtilitiesTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 9AC436661438C4BB00CC4F6C /* SMUtilitiesTests.h */; };
 		9AC436691438C4BB00CC4F6C /* SMUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC436681438C4BB00CC4F6C /* SMUtilitiesTests.m */; };
@@ -163,7 +162,6 @@
 				9AC436571438C4BB00CC4F6C /* Foundation.framework in Frameworks */,
 				9AC436591438C4BB00CC4F6C /* CoreGraphics.framework in Frameworks */,
 				9AC4365E1438C4BB00CC4F6C /* SMUtilities.framework in Frameworks */,
-				9AC4365F1438C4BB00CC4F6C /* SMUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +437,7 @@
 		9AC436351438C4BB00CC4F6C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "suleymanmelikoglu@gmail.com";
 			};
 			buildConfigurationList = 9AC436381438C4BB00CC4F6C /* Build configuration list for PBXProject "SMUtilities" */;
@@ -642,6 +640,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMUtilities/SMUtilities-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SMUtilities/SMUtilities-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -657,6 +656,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMUtilities/SMUtilities-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SMUtilities/SMUtilities-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -673,6 +673,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMUtilities/SMUtilities-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SMUtilitiesTests/SMUtilitiesTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -688,6 +689,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SMUtilities/SMUtilities-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SMUtilitiesTests/SMUtilitiesTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
