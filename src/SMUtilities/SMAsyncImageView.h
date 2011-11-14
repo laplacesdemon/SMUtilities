@@ -26,9 +26,17 @@
 @interface SMAsyncImageView : UIView <SMConnectionDelegate> {
     SMCacheConnection* _connection;
     NSURL* _url;
+    
+    NSString* connectionErrorMessage;
+    NSString* notFoundErrorMessage;
 }
 
+@property (nonatomic, retain) NSString* connectionErrorMessage;
+@property (nonatomic, retain) NSString* notFoundErrorMessage;
+
+- (id)initWithConnectionErrorMessage:(NSString*)theConnectionMessage notFoundMessage:(NSString*)theNotFoundMessage;
 - (void) loadImageFromUrl:(NSURL*)url;
 - (void) onLoadAgain;
+- (void) reset;
 
 @end

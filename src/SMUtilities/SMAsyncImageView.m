@@ -23,14 +23,81 @@
 
 #import "SMAsyncImageView.h"
 
+@interface SMAsyncImageView (PrivateMethods)
+- (void)removeSubViews;
+- (void)insertErrorMessage:(NSString*)message;
+@end
+
 @implementation SMAsyncImageView
+@synthesize connectionErrorMessage;
+@synthesize notFoundErrorMessage;
 
 #pragma mark - class methods
 
+- (id)init {
+    return [self initWithConnectionErrorMessage:@"Error, Tap to reload" notFoundMessage:@"Not Found"];
+}
+
+- (id)initWithConnectionErrorMessage:(NSString*)theConnectionMessage notFoundMessage:(NSString*)theNotFoundMessage {
+    self = [super init];
+    if (self) {
+        connectionErrorMessage = theConnectionMessage;
+        notFoundErrorMessage = theNotFoundMessage;
+    }
+    return self;
+}
+
 - (void)loadImageFromUrl:(NSURL*)url {
-    _url = url;
+    _url = [url retain];
     _connection = [[SMCacheConnection alloc] initWithURL:url andDelegate:self];
+    
+    // clear sub views if there is any
+    [self removeSubViews];
+    
     [_connection execute];
+}
+
+- (void)reset {
+    [self removeSubViews];
+    
+    if (_url) {
+        SMCacheConnection* conn = [[SMCacheConnection alloc] initWithURL:_url andDelegate:self];
+        [conn clearCache];
+        [conn release];
+    }
+}
+
+#pragma mark - memory managements
+
+- (void)dealloc {
+    [_url release];
+    [connectionErrorMessage release];
+    [notFoundErrorMessage release];
+    [super dealloc];
+}
+
+#pragma mark - private methods
+
+- (void)removeSubViews {
+    if ([[self subviews] count] > 0) {
+        for (UIView* v in [self subviews]) {
+            [v removeFromSuperview];
+        }
+    }
+}
+
+- (void)insertErrorMessage:(NSString*)message {
+    UIButton* _errorButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    //[_errorButton setCenter:self.center];
+    [_errorButton setTitle:message forState:UIControlStateNormal];
+    [_errorButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_errorButton setBackgroundColor:[UIColor clearColor]];
+    [[_errorButton titleLabel] setAdjustsFontSizeToFitWidth:YES];
+    [[_errorButton titleLabel] setFont:[UIFont fontWithName:@"Arial" size:12]];
+    [[_errorButton titleLabel] setNumberOfLines:2];
+    [_errorButton addTarget:self action:@selector(onLoadAgain) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_errorButton];
+    [_errorButton release];
 }
 
 #pragma mark - connection delegate
@@ -52,10 +119,18 @@
         [[[self subviews] objectAtIndex:0] removeFromSuperview];
     }
     
+    // get the image from data, if the image is nil then the data is not an image
+    UIImage* img = [UIImage imageWithData:connection.receivedData];
+    if (img == nil) {
+        [self insertErrorMessage:notFoundErrorMessage];
+        return;
+    }
+    
     // create the image view
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:connection.receivedData]];
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:img];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    imageView.tag = 31;
     
     [self addSubview:imageView];
     [imageView release];
@@ -68,22 +143,14 @@
         [[[self subviews] objectAtIndex:0] removeFromSuperview];
     }
     
-    UIButton* _errorButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
-    [_errorButton setCenter:self.center];
-    [_errorButton setTitle:@"Failed, Tap to load" forState:UIControlStateNormal];
-    [_errorButton setBackgroundColor:[UIColor clearColor]];
-    [_errorButton addTarget:self action:@selector(onLoadAgain) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_errorButton];
-    [_errorButton release];
+    [self insertErrorMessage:connectionErrorMessage];
     
     [_connection release];
 }
 
 - (void) onLoadAgain {
     // remove the error button
-    if ([[self subviews] count]>0) {
-        [[[self subviews] objectAtIndex:0] removeFromSuperview];
-    }
+    [self reset];
     
     [self loadImageFromUrl:_url];
 }
