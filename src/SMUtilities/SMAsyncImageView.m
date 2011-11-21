@@ -26,11 +26,13 @@
 @interface SMAsyncImageView (PrivateMethods)
 - (void)removeSubViews;
 - (void)insertErrorMessage:(NSString*)message;
+- (void)prepareUI;
 @end
 
 @implementation SMAsyncImageView
 @synthesize connectionErrorMessage;
 @synthesize notFoundErrorMessage;
+@synthesize indicatorView;
 
 #pragma mark - class methods
 
@@ -38,11 +40,21 @@
     return [self initWithConnectionErrorMessage:@"Error, Tap to reload" notFoundMessage:@"Not Found"];
 }
 
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self prepareUI];
+    }
+    return self;
+}
+
 - (id)initWithConnectionErrorMessage:(NSString*)theConnectionMessage notFoundMessage:(NSString*)theNotFoundMessage {
     self = [super init];
     if (self) {
         connectionErrorMessage = theConnectionMessage;
         notFoundErrorMessage = theNotFoundMessage;
+        
+        [self prepareUI];
     }
     return self;
 }
@@ -73,6 +85,7 @@
     [_url release];
     [connectionErrorMessage release];
     [notFoundErrorMessage release];
+    [_indicatorView release];
     [super dealloc];
 }
 
@@ -100,17 +113,21 @@
     [_errorButton release];
 }
 
+- (void)prepareUI {
+    CGRect rect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    _indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:rect];
+    [_indicatorView setHidesWhenStopped:YES];
+    [_indicatorView stopAnimating];
+    [_indicatorView setTag:99];
+    [_indicatorView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    [_indicatorView setBackgroundColor:[UIColor whiteColor]];
+}
+
 #pragma mark - connection delegate
 
 - (void) connectionDidStart:(SMConnection*)connection {
-    CGRect rect = CGRectMake(0, 0, 20, 20);
-    UIActivityIndicatorView* _indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:rect];
     [_indicatorView startAnimating];
-    [_indicatorView setTag:99];
-    [_indicatorView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
-    [_indicatorView setCenter:self.center];
     [self addSubview:_indicatorView];
-    [_indicatorView release];
 }
 
 - (void) connectionDidFinish:(SMConnection*)connection {
