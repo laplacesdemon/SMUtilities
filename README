@@ -6,14 +6,17 @@ SMUtilities is a static IOS Framework which is a collection or ufeful utilities.
 Features
 ========
 
-@todo
+# Asynchronous image view
+# Convenient C functions for displaying iOS alerts
+# NSConnection wrapper (with caching support)
+# UIActivityIndicator wrapper, for creating "Loading" messages easily.
+# Keychain wrapper for storing sensitive data in the keychain
+# Persistency Manager: convenient messages for using Core Data
+# PullToRefresh table view controller (Created by Leah Culver)
+# RestClient for managing RESTFul API connections
+
 
 How to install
 ==============
 
-@todo
-
-Roadmap
-=======
-
-1. RestClient
+Add the "SMUtilities.framework" file as a static library. In configuration page, go to "Build Phases" and add the library in "Link Binary With Libraries" section as usual.
