@@ -58,6 +58,9 @@
 		9AC4368D1438C69500CC4F6C /* SMConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC4368B1438C69500CC4F6C /* SMConnectionTest.m */; };
 		9AC436901438C7BD00CC4F6C /* SMCacheConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC4368F1438C7BD00CC4F6C /* SMCacheConnectionTest.m */; };
 		9ACBFC7914570581001D327B /* SMRestClientPostTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACBFC7814570581001D327B /* SMRestClientPostTest.m */; };
+		9AD8E9E1147BE7AA00ABE01E /* SMDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD8E9DF147BE7AA00ABE01E /* SMDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AD8E9E2147BE7AA00ABE01E /* SMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8E9E0147BE7AA00ABE01E /* SMDevice.m */; };
+		9AD8E9E6147BE83800ABE01E /* SMDeviceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8E9E5147BE83800ABE01E /* SMDeviceTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +141,10 @@
 		9AC4368F1438C7BD00CC4F6C /* SMCacheConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCacheConnectionTest.m; sourceTree = "<group>"; };
 		9ACBFC7714570581001D327B /* SMRestClientPostTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMRestClientPostTest.h; sourceTree = "<group>"; };
 		9ACBFC7814570581001D327B /* SMRestClientPostTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMRestClientPostTest.m; sourceTree = "<group>"; };
+		9AD8E9DF147BE7AA00ABE01E /* SMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMDevice.h; sourceTree = "<group>"; };
+		9AD8E9E0147BE7AA00ABE01E /* SMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDevice.m; sourceTree = "<group>"; };
+		9AD8E9E4147BE83800ABE01E /* SMDeviceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMDeviceTest.h; sourceTree = "<group>"; };
+		9AD8E9E5147BE83800ABE01E /* SMDeviceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDeviceTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +180,8 @@
 			children = (
 				9A18E79A1458562700139FA0 /* SMKeyChain.h */,
 				9A18E79B1458562700139FA0 /* SMKeyChain.m */,
+				9AD8E9DF147BE7AA00ABE01E /* SMDevice.h */,
+				9AD8E9E0147BE7AA00ABE01E /* SMDevice.m */,
 			);
 			name = Security;
 			sourceTree = "<group>";
@@ -182,6 +191,8 @@
 			children = (
 				9A18E79F14585AC000139FA0 /* SMKeyChainTest.h */,
 				9A18E7A014585AC000139FA0 /* SMKeyChainTest.m */,
+				9AD8E9E4147BE83800ABE01E /* SMDeviceTest.h */,
+				9AD8E9E5147BE83800ABE01E /* SMDeviceTest.m */,
 			);
 			name = Security;
 			sourceTree = "<group>";
@@ -378,6 +389,7 @@
 				9A39DE631445B41D00C688A8 /* SMAsyncImageView.h in Headers */,
 				9AAA67771445E90F0023F35F /* SMPullRefreshTableViewController.h in Headers */,
 				9A18E79C1458562700139FA0 /* SMKeyChain.h in Headers */,
+				9AD8E9E1147BE7AA00ABE01E /* SMDevice.h in Headers */,
 				9AB69A4E14445DCE00C5F3F6 /* JSON.h in Headers */,
 				9AB69A4F14445DCE00C5F3F6 /* NSObject+SBJSON.h in Headers */,
 				9AB69A5114445DCE00C5F3F6 /* NSString+SBJSON.h in Headers */,
@@ -540,6 +552,7 @@
 				9A39DE641445B41D00C688A8 /* SMAsyncImageView.m in Sources */,
 				9AAA67781445E90F0023F35F /* SMPullRefreshTableViewController.m in Sources */,
 				9A18E79D1458562700139FA0 /* SMKeyChain.m in Sources */,
+				9AD8E9E2147BE7AA00ABE01E /* SMDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +567,7 @@
 				9A7BA02F1456B2FA00F8D906 /* SMRestClientBasicAuthenticationTest.m in Sources */,
 				9ACBFC7914570581001D327B /* SMRestClientPostTest.m in Sources */,
 				9A18E7A114585AC000139FA0 /* SMKeyChainTest.m in Sources */,
+				9AD8E9E6147BE83800ABE01E /* SMDeviceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
