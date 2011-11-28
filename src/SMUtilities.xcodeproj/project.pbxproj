@@ -61,6 +61,9 @@
 		9AD8E9E1147BE7AA00ABE01E /* SMDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD8E9DF147BE7AA00ABE01E /* SMDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AD8E9E2147BE7AA00ABE01E /* SMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8E9E0147BE7AA00ABE01E /* SMDevice.m */; };
 		9AD8E9E6147BE83800ABE01E /* SMDeviceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8E9E5147BE83800ABE01E /* SMDeviceTest.m */; };
+		9AE24450148391C500120294 /* SMSocketConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AE2444E148391C500120294 /* SMSocketConnector.h */; };
+		9AE24451148391C500120294 /* SMSocketConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2444F148391C500120294 /* SMSocketConnector.m */; };
+		9AE244551483944D00120294 /* SMSocketConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE244541483944D00120294 /* SMSocketConnectionTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +148,10 @@
 		9AD8E9E0147BE7AA00ABE01E /* SMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDevice.m; sourceTree = "<group>"; };
 		9AD8E9E4147BE83800ABE01E /* SMDeviceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMDeviceTest.h; sourceTree = "<group>"; };
 		9AD8E9E5147BE83800ABE01E /* SMDeviceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDeviceTest.m; sourceTree = "<group>"; };
+		9AE2444E148391C500120294 /* SMSocketConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSocketConnector.h; sourceTree = "<group>"; };
+		9AE2444F148391C500120294 /* SMSocketConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSocketConnector.m; sourceTree = "<group>"; };
+		9AE244531483944D00120294 /* SMSocketConnectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSocketConnectionTest.h; sourceTree = "<group>"; };
+		9AE244541483944D00120294 /* SMSocketConnectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSocketConnectionTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +365,8 @@
 				9AC436781438C62500CC4F6C /* SMCacheConnection.m */,
 				9AC436791438C62500CC4F6C /* SMConnection.h */,
 				9AC4367A1438C62500CC4F6C /* SMConnection.m */,
+				9AE2444E148391C500120294 /* SMSocketConnector.h */,
+				9AE2444F148391C500120294 /* SMSocketConnector.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -369,6 +378,8 @@
 				9AC4368B1438C69500CC4F6C /* SMConnectionTest.m */,
 				9AC4368E1438C7BD00CC4F6C /* SMCacheConnectionTest.h */,
 				9AC4368F1438C7BD00CC4F6C /* SMCacheConnectionTest.m */,
+				9AE244531483944D00120294 /* SMSocketConnectionTest.h */,
+				9AE244541483944D00120294 /* SMSocketConnectionTest.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -397,6 +408,7 @@
 				9AB69A5514445DCE00C5F3F6 /* SBJsonBase.h in Headers */,
 				9AB69A5714445DCE00C5F3F6 /* SBJsonParser.h in Headers */,
 				9AB69A5914445DCE00C5F3F6 /* SBJsonWriter.h in Headers */,
+				9AE24450148391C500120294 /* SMSocketConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +565,7 @@
 				9AAA67781445E90F0023F35F /* SMPullRefreshTableViewController.m in Sources */,
 				9A18E79D1458562700139FA0 /* SMKeyChain.m in Sources */,
 				9AD8E9E2147BE7AA00ABE01E /* SMDevice.m in Sources */,
+				9AE24451148391C500120294 /* SMSocketConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +581,7 @@
 				9ACBFC7914570581001D327B /* SMRestClientPostTest.m in Sources */,
 				9A18E7A114585AC000139FA0 /* SMKeyChainTest.m in Sources */,
 				9AD8E9E6147BE83800ABE01E /* SMDeviceTest.m in Sources */,
+				9AE244551483944D00120294 /* SMSocketConnectionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
