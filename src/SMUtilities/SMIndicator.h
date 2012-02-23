@@ -30,11 +30,13 @@
     UIActivityIndicatorView* activityIndicator;
     UILabel* label;
     UILabel* msg;
+    UILabel* backgroundLabel;
 @private
     BOOL isAnimating;
 }
 
 @property (nonatomic, retain) UILabel* label;
+@property (nonatomic, retain) UILabel* backgroundLabel;
 @property (nonatomic, retain) UILabel* msg;
 @property (nonatomic, retain) UIActivityIndicatorView* activityIndicator;
 

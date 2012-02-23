@@ -26,6 +26,7 @@
 
 @implementation SMIndicator
 @synthesize label;
+@synthesize backgroundLabel;
 @synthesize msg;
 @synthesize activityIndicator;
 
@@ -37,13 +38,12 @@
         
         [self setFrame:CGRectMake(60, 100, 200, 100)];
         
-        UIColor* background = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.75];;
+        UIColor* background = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.75];
         
-        UILabel* backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        backgroundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
         [backgroundLabel setBackgroundColor:background];
         [backgroundLabel.layer setCornerRadius:10];
         [self addSubview:backgroundLabel];
-        [backgroundLabel release];
         
         activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(50, 40, 20, 20)];
         [activityIndicator setHidesWhenStopped:YES];
@@ -130,6 +130,7 @@
     [activityIndicator release];
     [label release];
     [msg release];
+    [backgroundLabel release];
     [super dealloc];
 }
 

@@ -159,7 +159,7 @@ tag=_tag;
 }
 
 - (id)formError:(NSInteger)code userInfo:(NSDictionary *) errorData {
-    return [NSError errorWithDomain:@"whastaErrDomain" code:code userInfo:errorData];
+    return [NSError errorWithDomain:@"SMUtilities" code:code userInfo:errorData];
 }
 
 - (id)parseJsonResponse:(NSData *)data error:(NSError **)error {
@@ -396,7 +396,7 @@ tag=_tag;
         [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
     } else {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
-        NSError* error = [NSError errorWithDomain:@"Whasta" code:500 userInfo:nil];
+        NSError* error = [NSError errorWithDomain:@"SMUtilities" code:500 userInfo:nil];
         if ([[self delegate] respondsToSelector:@selector(client:didFailWithError:)]) {
             [[self delegate] client:self didFailWithError:error];            
         }

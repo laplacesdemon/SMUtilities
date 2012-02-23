@@ -1,69 +1,25 @@
 //
-//  PullRefreshTableViewController.m
-//  Plancast
+//  SMPullRefreshViewController.m
+//  SMUtilities
 //
-//  Created by Leah Culver on 7/2/10.
-//  Copyright (c) 2010 Leah Culver
-//
-//  Permission is hereby granted, free of charge, to any person
-//  obtaining a copy of this software and associated documentation
-//  files (the "Software"), to deal in the Software without
-//  restriction, including without limitation the rights to use,
-//  copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the
-//  Software is furnished to do so, subject to the following
-//  conditions:
-//
-//  The above copyright notice and this permission notice shall be
-//  included in all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-//  OTHER DEALINGS IN THE SOFTWARE.
+//  Created by Suleyman Melikoglu on 2/15/12.
+//  Copyright (c) 2012 suleymanmelikoglu@gmail.com. All rights reserved.
 //
 
+#import "SMPullRefreshViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "SMPullRefreshTableViewController.h"
 
 #define REFRESH_HEADER_HEIGHT 52.0f
 
+@implementation SMPullRefreshViewController
 
-@implementation SMPullRefreshTableViewController
-
-@synthesize textPull, textRelease, textLoading, refreshHeaderView, refreshLabel, refreshArrow, refreshSpinner;
-
-- (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
-    if (self != nil) {
-        [self setupStrings];
-    }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self != nil) {
-        [self setupStrings];
-    }
-    return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self != nil) {
-        [self setupStrings];
-    }
-    return self;
-}
+@synthesize textPull, textRelease, textLoading, refreshHeaderView, refreshLabel, refreshArrow, refreshSpinner, tableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self addPullToRefreshHeader];
+    [self.view addSubview:self.tableView];
 }
 
 - (void)setupStrings{
@@ -182,7 +138,9 @@
     [textPull release];
     [textRelease release];
     [textLoading release];
+
     [super dealloc];
 }
+
 
 @end

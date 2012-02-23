@@ -12,6 +12,8 @@
 		9A18E7A114585AC000139FA0 /* SMKeyChainTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A18E7A014585AC000139FA0 /* SMKeyChainTest.m */; };
 		9A18E7A314585C9E00139FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A18E7A214585C9E00139FA0 /* Security.framework */; };
 		9A18E7A514585D7E00139FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A18E7A414585D7E00139FA0 /* Security.framework */; };
+		9A1B07F914E5681A00ECE31A /* SMAsyncFacebookImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1B07F714E5681A00ECE31A /* SMAsyncFacebookImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A1B07FA14E5681A00ECE31A /* SMAsyncFacebookImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B07F814E5681A00ECE31A /* SMAsyncFacebookImageView.m */; };
 		9A39DE5A1445AF3600C688A8 /* SMIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A39DE581445AF3600C688A8 /* SMIndicator.m */; };
 		9A39DE5E1445AF9700C688A8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A39DE5D1445AF9700C688A8 /* QuartzCore.framework */; };
 		9A39DE601445AFEC00C688A8 /* SMIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39DE5F1445AFEC00C688A8 /* SMIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,7 +63,9 @@
 		9AD8E9E1147BE7AA00ABE01E /* SMDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD8E9DF147BE7AA00ABE01E /* SMDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AD8E9E2147BE7AA00ABE01E /* SMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8E9E0147BE7AA00ABE01E /* SMDevice.m */; };
 		9AD8E9E6147BE83800ABE01E /* SMDeviceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8E9E5147BE83800ABE01E /* SMDeviceTest.m */; };
-		9AE24450148391C500120294 /* SMSocketConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AE2444E148391C500120294 /* SMSocketConnector.h */; };
+		9ADF466514EC0FB5006B634E /* SMPullRefreshViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ADF466314EC0FB5006B634E /* SMPullRefreshViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9ADF466614EC0FB5006B634E /* SMPullRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADF466414EC0FB5006B634E /* SMPullRefreshViewController.m */; };
+		9AE24450148391C500120294 /* SMSocketConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AE2444E148391C500120294 /* SMSocketConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AE24451148391C500120294 /* SMSocketConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2444F148391C500120294 /* SMSocketConnector.m */; };
 		9AE244551483944D00120294 /* SMSocketConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE244541483944D00120294 /* SMSocketConnectionTest.m */; };
 /* End PBXBuildFile section */
@@ -90,6 +94,8 @@
 		9A18E7A014585AC000139FA0 /* SMKeyChainTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMKeyChainTest.m; sourceTree = "<group>"; };
 		9A18E7A214585C9E00139FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9A18E7A414585D7E00139FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9A1B07F714E5681A00ECE31A /* SMAsyncFacebookImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAsyncFacebookImageView.h; sourceTree = "<group>"; };
+		9A1B07F814E5681A00ECE31A /* SMAsyncFacebookImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAsyncFacebookImageView.m; sourceTree = "<group>"; };
 		9A39DE581445AF3600C688A8 /* SMIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMIndicator.m; sourceTree = "<group>"; };
 		9A39DE5D1445AF9700C688A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9A39DE5F1445AFEC00C688A8 /* SMIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMIndicator.h; sourceTree = "<group>"; };
@@ -148,6 +154,8 @@
 		9AD8E9E0147BE7AA00ABE01E /* SMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDevice.m; sourceTree = "<group>"; };
 		9AD8E9E4147BE83800ABE01E /* SMDeviceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMDeviceTest.h; sourceTree = "<group>"; };
 		9AD8E9E5147BE83800ABE01E /* SMDeviceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDeviceTest.m; sourceTree = "<group>"; };
+		9ADF466314EC0FB5006B634E /* SMPullRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPullRefreshViewController.h; sourceTree = "<group>"; };
+		9ADF466414EC0FB5006B634E /* SMPullRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPullRefreshViewController.m; sourceTree = "<group>"; };
 		9AE2444E148391C500120294 /* SMSocketConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSocketConnector.h; sourceTree = "<group>"; };
 		9AE2444F148391C500120294 /* SMSocketConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSocketConnector.m; sourceTree = "<group>"; };
 		9AE244531483944D00120294 /* SMSocketConnectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSocketConnectionTest.h; sourceTree = "<group>"; };
@@ -224,6 +232,10 @@
 				9AB69A3C14445C0100C5F3F6 /* SMAlert.m */,
 				9AAA67751445E90F0023F35F /* SMPullRefreshTableViewController.h */,
 				9AAA67761445E90F0023F35F /* SMPullRefreshTableViewController.m */,
+				9ADF466314EC0FB5006B634E /* SMPullRefreshViewController.h */,
+				9ADF466414EC0FB5006B634E /* SMPullRefreshViewController.m */,
+				9A1B07F714E5681A00ECE31A /* SMAsyncFacebookImageView.h */,
+				9A1B07F814E5681A00ECE31A /* SMAsyncFacebookImageView.m */,
 			);
 			name = UIUtilities;
 			sourceTree = "<group>";
@@ -401,6 +413,9 @@
 				9AAA67771445E90F0023F35F /* SMPullRefreshTableViewController.h in Headers */,
 				9A18E79C1458562700139FA0 /* SMKeyChain.h in Headers */,
 				9AD8E9E1147BE7AA00ABE01E /* SMDevice.h in Headers */,
+				9A1B07F914E5681A00ECE31A /* SMAsyncFacebookImageView.h in Headers */,
+				9AE24450148391C500120294 /* SMSocketConnector.h in Headers */,
+				9ADF466514EC0FB5006B634E /* SMPullRefreshViewController.h in Headers */,
 				9AB69A4E14445DCE00C5F3F6 /* JSON.h in Headers */,
 				9AB69A4F14445DCE00C5F3F6 /* NSObject+SBJSON.h in Headers */,
 				9AB69A5114445DCE00C5F3F6 /* NSString+SBJSON.h in Headers */,
@@ -408,7 +423,6 @@
 				9AB69A5514445DCE00C5F3F6 /* SBJsonBase.h in Headers */,
 				9AB69A5714445DCE00C5F3F6 /* SBJsonParser.h in Headers */,
 				9AB69A5914445DCE00C5F3F6 /* SBJsonWriter.h in Headers */,
-				9AE24450148391C500120294 /* SMSocketConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +580,8 @@
 				9A18E79D1458562700139FA0 /* SMKeyChain.m in Sources */,
 				9AD8E9E2147BE7AA00ABE01E /* SMDevice.m in Sources */,
 				9AE24451148391C500120294 /* SMSocketConnector.m in Sources */,
+				9A1B07FA14E5681A00ECE31A /* SMAsyncFacebookImageView.m in Sources */,
+				9ADF466614EC0FB5006B634E /* SMPullRefreshViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

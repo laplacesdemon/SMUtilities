@@ -143,8 +143,33 @@
         return;
     }
     
+    // Resize, crop the image to make sure it is square and renders
+    // well on Retina display
+    float ratio;
+    float delta;
+    float px = 40; // Double the pixels of the UIImageView (to render on Retina)
+    CGPoint offset;
+    CGSize size = img.size;
+    if (size.width > size.height) {
+        ratio = px / size.width;
+        delta = (ratio*size.width - ratio*size.height);
+        offset = CGPointMake(delta/2, 0);
+    } else {
+        ratio = px / size.height;
+        delta = (ratio*size.height - ratio*size.width);
+        offset = CGPointMake(0, delta/2);
+    }
+    CGRect clipRect = CGRectMake(-offset.x, -offset.y,
+                                 (ratio * size.width) + delta,
+                                 (ratio * size.height) + delta);
+    UIGraphicsBeginImageContext(CGSizeMake(px, px));
+    UIRectClip(clipRect);
+    [img drawInRect:clipRect];
+    UIImage *imgThumb =   UIGraphicsGetImageFromCurrentImageContext();
+    
+    
     // create the image view
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:img];
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:imgThumb];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     imageView.tag = 31;
