@@ -14,6 +14,7 @@ Features
 * Persistency Manager: convenient messages for using Core Data
 * PullToRefresh table view controller (Created by Leah Culver)
 * RestClient for managing RESTFul API connections
+* Socket Connector, for easiuly open a socket connection
 
 How to install
 --------------
